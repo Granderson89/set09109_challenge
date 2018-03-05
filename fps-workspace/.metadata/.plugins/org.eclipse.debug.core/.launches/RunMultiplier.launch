@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.codehaus.groovy.eclipse.groovyScriptLaunchConfiguration">
+<stringAttribute key="org.codehaus.groovy.eclipse.launch.runType" value="c2.RunMultiplier"/>
+<listAttribute key="org.eclipse.jdt.launching.CLASSPATH">
+<listEntry value="H:\Documents\fps-workspace\ChapterExercises\bin-groovy"/>
+<listEntry value="C:\Eclipse\eclipse\plugins\org.codehaus.groovy_2.4.12.xx-201709052129-e47\lib\groovy-all-2.4.12.jar"/>
+<listEntry value="C:\Eclipse\eclipse\plugins\org.codehaus.groovy_2.4.12.xx-201709052129-e47\lib\bsf-2.4.0.jar"/>
+<listEntry value="C:\Eclipse\eclipse\plugins\org.codehaus.groovy_2.4.12.xx-201709052129-e47\lib\ivy-2.4.0.jar"/>
+<listEntry value="C:\Eclipse\eclipse\plugins\org.codehaus.groovy_2.4.12.xx-201709052129-e47\lib\servlet-api-2.4.jar"/>
+<listEntry value="C:\Users\40218994\.groovy\greclipse\global_dsld_support"/>
+<listEntry value="C:\Eclipse\eclipse\plugins\org.codehaus.groovy_2.4.12.xx-201709052129-e47\plugin_dsld_support\"/>
+<listEntry value="C:\jcsp-groovyJCSP-18092017\groovyJCSP-18092017.jar"/>
+<listEntry value="C:\jcsp-groovyJCSP-18092017\jcsp18092017.jar"/>
+<listEntry value="C:\jcsp-groovyJCSP-18092017\junit.jar"/>
+<listEntry value="C:\jcsp-groovyJCSP-18092017\phwclasses.jar"/>
+<listEntry value="H:\Documents\fps-workspace\ChapterExamples\bin"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.codehaus.groovy.tools.GroovyStarter"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--classpath &quot;${workspace_loc:\ChapterExamples}\src;${workspace_loc:\ChapterExercises}\src;C:\jcsp-groovyJCSP-18092017\groovyJCSP-18092017.jar;C:\jcsp-groovyJCSP-18092017\jcsp18092017.jar;C:\jcsp-groovyJCSP-18092017\junit.jar;C:\jcsp-groovyJCSP-18092017\phwclasses.jar;${workspace_loc:\ChapterExamples}\bin;${workspace_loc:\ChapterExercises}\bin-groovy&quot; --main groovy.ui.GroovyMain &quot;${resource_loc:/ChapterExercises/src/c2/RunMultiplier.groovy}&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ChapterExercises"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value=" -Dgroovy.home=&quot;${groovy_home}&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:\ChapterExercises}"/>
+</launchConfiguration>
