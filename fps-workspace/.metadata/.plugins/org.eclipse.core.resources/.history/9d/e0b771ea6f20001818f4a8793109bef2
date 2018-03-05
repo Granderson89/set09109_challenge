@@ -159,8 +159,8 @@ class PlayerManager implements CSProcess {
 				def gameDetails = (GameDetails)fromController.read()
 				def gameId = gameDetails.gameId
 				def turn = gameDetails.playerTurn
-				println("Turn: " + turn)
-				print("Id: " + myPlayerId)
+				println(turn)
+				
 				IPconfig.write("Playing Game Number - " + gameId)	
 				def playerMap = gameDetails.playerDetails
 				def pairsMap = gameDetails.pairsSpecification
