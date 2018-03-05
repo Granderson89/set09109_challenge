@@ -237,7 +237,7 @@ class PlayerManager implements CSProcess {
 					} // end of while getting two pairs
 				}
 				else {
-					toController.write(new GetGameDetails(id: myPlayerId))
+					println("not my turn")
 					gameDetails = (GameDetails)fromController.read()
 					gameId = gameDetails.gameId
 					IPconfig.write("Playing Game Number - " + gameId)

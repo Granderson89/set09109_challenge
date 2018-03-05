@@ -236,15 +236,16 @@ class ControllerManager implements CSProcess{
 						}
 					}	
 				} else if (o == 0) {
-					//println("maxPlayers: " + maxPlayers)
-					//println("availablePlayerIds: " + availablePlayerIds.size())
+					println("maxPlayers: " + maxPlayers)
+					println("availablePlayerIds: " + availablePlayerIds.size())
 					int num = maxPlayers - availablePlayerIds.size()
 					println("Num of players: " + num)
-					turn++
-					println("Turn: " + turn)
-					
-					if ( num == turn ) {
+					if ( maxPlayers - availablePlayerIds.size() == turn ) {
+						println(maxPlayers - availablePlayerIds.size())
 						turn = 0
+					}
+					else {
+						turn++
 					}
 					
 				} else {

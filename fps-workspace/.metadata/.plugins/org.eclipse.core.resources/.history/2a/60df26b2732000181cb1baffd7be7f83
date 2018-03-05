@@ -237,7 +237,7 @@ class PlayerManager implements CSProcess {
 					} // end of while getting two pairs
 				}
 				else {
-					toController.write(new GetGameDetails(id: myPlayerId))
+					println("not my turn")
 					gameDetails = (GameDetails)fromController.read()
 					gameId = gameDetails.gameId
 					IPconfig.write("Playing Game Number - " + gameId)
@@ -255,6 +255,7 @@ class PlayerManager implements CSProcess {
 					pairLocs.each {loc ->
 						changePairs(loc[0], loc[1], Color.LIGHT_GRAY, -1)
 					}
+					println("reached end of else")
 				}
 			} // end of while enrolled loop
 			IPlabel.write("Goodbye " + playerName + ", please close game window")

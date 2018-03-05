@@ -240,11 +240,12 @@ class ControllerManager implements CSProcess{
 					//println("availablePlayerIds: " + availablePlayerIds.size())
 					int num = maxPlayers - availablePlayerIds.size()
 					println("Num of players: " + num)
-					turn++
 					println("Turn: " + turn)
-					
 					if ( num == turn ) {
 						turn = 0
+					}
+					else {
+						turn++
 					}
 					
 				} else {

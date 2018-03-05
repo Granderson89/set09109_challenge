@@ -26,7 +26,7 @@ class ControllerManager implements CSProcess{
 	ChannelOutputList playerNames
 	ChannelOutputList pairsWon
 	
-	int maxPlayers = 5
+	int maxPlayers = 8
 	int side = 50
 	int minPairs = 6
 	int maxPairs = 18
@@ -236,17 +236,7 @@ class ControllerManager implements CSProcess{
 						}
 					}	
 				} else if (o == 0) {
-					//println("maxPlayers: " + maxPlayers)
-					//println("availablePlayerIds: " + availablePlayerIds.size())
-					int num = maxPlayers - availablePlayerIds.size()
-					println("Num of players: " + num)
-					turn++
-					println("Turn: " + turn)
-					
-					if ( num == turn ) {
-						turn = 0
-					}
-					
+					turn = turn + 1
 				} else {
 					def withdraw = (WithdrawFromGame)o
 					def id = withdraw.id
