@@ -208,8 +208,7 @@ class ControllerManager implements CSProcess{
 					toPlayers[id].write(new GameDetails( playerDetails: playerMap,
 													 	 pairsSpecification: pairsMap,
 														 gameId: gameId,
-														 playerTurn: turn,
-														 cardsSelected: location))
+														 playerTurn: turn))
 				} else if ( o instanceof ClaimPair) {
 					def claimPair = (ClaimPair)o
 					def gameNo = claimPair.gameId
@@ -250,7 +249,10 @@ class ControllerManager implements CSProcess{
 					}
 					
 				} else if (o instanceof Collection ) {
-					location = o
+					println("Collection")
+					
+
+					println("After GameDetails")
 				} else {
 					def withdraw = (WithdrawFromGame)o
 					def id = withdraw.id

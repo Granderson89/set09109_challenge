@@ -259,8 +259,7 @@ class PlayerManager implements CSProcess {
 					pairLocs.each {loc ->
 						changePairs(loc[0], loc[1], Color.LIGHT_GRAY, -1)
 					}
-					def loc = gameDetails.cardsSelected
-					if (loc != null) {
+					gameDetails.cardsSelected.each {loc ->
 						def pairData = pairsMap.get(loc)
 						changePairs(loc[0], loc[1], pairData[1], pairData[0])
 					}
