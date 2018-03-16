@@ -247,13 +247,6 @@ class ControllerManager implements CSProcess{
 						turn = 0
 					}
 					
-				} else if (o instanceof Collection ) {
-					def id = 0
-					toPlayers[id].write(new GameDetails( playerDetails: playerMap,
-														  pairsSpecification: pairsMap,
-														 gameId: gameId,
-														 playerTurn: turn,
-														 cardsSelected: o))
 				} else {
 					def withdraw = (WithdrawFromGame)o
 					def id = withdraw.id

@@ -260,7 +260,7 @@ class PlayerManager implements CSProcess {
 					}
 					gameDetails.cardsSelected.each {loc ->
 						def pairData = pairsMap.get(loc)
-						changePairs(loc[0], loc[1], pairData[1], pairData[0])
+						changPairs(loc[0], loc[1], pairData[1], pairData[0])
 					}
 				}
 			} // end of while enrolled loop

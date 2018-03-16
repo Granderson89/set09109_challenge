@@ -253,7 +253,7 @@ class ControllerManager implements CSProcess{
 														  pairsSpecification: pairsMap,
 														 gameId: gameId,
 														 playerTurn: turn,
-														 cardsSelected: o))
+														 cardsSelected: o.location))
 				} else {
 					def withdraw = (WithdrawFromGame)o
 					def id = withdraw.id

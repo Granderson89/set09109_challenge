@@ -7,5 +7,4 @@ class GameDetails implements Serializable {
 	def playerDetails = null
 	def pairsSpecification = null
 	def playerTurn
-	def cardsSelected
 }
