@@ -239,18 +239,23 @@ class ControllerManager implements CSProcess{
 					}
 					location = []	
 				} else if (o == 0) {
-					//println("maxPlayers: " + maxPlayers)
-					//println("availablePlayerIds: " + availablePlayerIds.size())
+					// Keep track of number of players
 					int num = maxPlayers - availablePlayerIds.size()
-					println("Num of players: " + num)
+					//println("Num of players: " + num)
+					// Increment turn
 					turn++
-					println("Turn: " + turn)
+					//println("Turn: " + turn)
 					
+					// Reset turn when it reaches the number of players
 					if ( num == turn ) {
 						turn = 0
 					}
 					
+					location = []
+					
 				} else if (o instanceof Collection ) {
+					// Either add this card to the location list
+					// or reset the list and add the card
 					if (location.size() >= 4)
 						location = o
 					else 
@@ -265,6 +270,20 @@ class ControllerManager implements CSProcess{
 					toPlayers[id] = null
 					availablePlayerIds << id
 					availablePlayerIds =  availablePlayerIds.sort().reverse()
+					
+					// Keep track of number of players
+					int num = maxPlayers - availablePlayerIds.size()
+					//println("Num of players: " + num)
+					// Increment turn
+					turn++
+					//println("Turn: " + turn)
+					
+					// Reset turn when it reaches the number of players
+					if ( turn >= num ) {
+						turn = 0
+					}
+					
+					location = []
 				} // end else if chain
 			} // while running
 			createBoard()

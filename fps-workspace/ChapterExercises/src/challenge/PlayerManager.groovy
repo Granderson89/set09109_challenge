@@ -23,6 +23,9 @@ class PlayerManager implements CSProcess {
 	ChannelInput validPoint
 	ChannelOutput nextPairConfig
 	
+	def giveUpTurn = new CSTimer()
+	def delay = 2000
+	
 	int maxPlayers = 8
 	int side = 50
 	int minPairs = 3
@@ -110,7 +113,7 @@ class PlayerManager implements CSProcess {
 		}
 		
 		def outerAlt = new ALT([validPoint, withdrawButton])
-		def innerAlt = new ALT([nextButton, withdrawButton])
+		def innerAlt = new ALT([giveUpTurn, withdrawButton])
 		def NEXT = 0
 		def VALIDPOINT = 0
 		def WITHDRAW = 1
@@ -149,14 +152,18 @@ class PlayerManager implements CSProcess {
 		else {
 			IPlabel.write("Hi " + playerName + ", you are now enroled in the PAIRS game")
 			IPconfig.write(" ")	
-			def prevGameDetails
-			def continueBool = false
-			
+			// Timer to delay getting game details when it is not your turn
+			def timer = new CSTimer()
+						
 			// main loop
 			while (enroled) {
+				// Wait before getting new game details
+				timer.sleep(delay)
+				
 				def chosenPairs = [null, null]
 				createBoard()
 				dList.change (display, 0)
+				
 				toController.write(new GetGameDetails(id: myPlayerId))
 				def gameDetails = (GameDetails)fromController.read()
 				def gameId = gameDetails.gameId
@@ -173,13 +180,35 @@ class PlayerManager implements CSProcess {
 					pairsWon[p].write(" " + pData[1])
 				}
 				
-				if (!continueBool) {
-					// now use pairsMap to create the board
-					def pairLocs = pairsMap.keySet()
-					pairLocs.each {loc ->
-						changePairs(loc[0], loc[1], Color.LIGHT_GRAY, -1)
-					}
+				// now use pairsMap to create the board
+				def pairLocs = pairsMap.keySet()
+				pairLocs.each {loc ->
+					changePairs(loc[0], loc[1], Color.LIGHT_GRAY, -1)
 				}
+				
+				// Check which cards have been selected by the other player this turn
+				def loc = gameDetails.cardsSelected
+				if (loc != null && loc != []) {
+					def pair1
+					def pair2
+					// Only one card chosen
+					if (loc.size() < 3) {
+						pair1 = [loc[0], loc[1]]
+					}
+					// Two cards chosen
+					else {
+						pair1 = [loc[0], loc[1]]
+						pair2 = [loc[2], loc[3]]
+						// Show second card
+						def pairData2 = pairsMap.get(pair2)
+						changePairs(pair2[0], pair2[1], pairData2[1], pairData2[0])
+					}
+					// Show first card
+					def pairData1 = pairsMap.get(pair1)
+					changePairs(pair1[0], pair1[1], pairData1[1], pairData1[0])
+				}
+				
+				
 				// If it is this player's turn, do matching
 				if (turn == myPlayerId) {
 					print("my turn")
@@ -206,11 +235,12 @@ class PlayerManager implements CSProcess {
 								changePairs(vPoint[0], vPoint[1], pairData[1], pairData[0])
 								def matchOutcome = pairsMatch(pairsMap, chosenPairs)
 								if ( matchOutcome == 2)  {
-									nextPairConfig.write("SELECT NEXT PAIR")
+									nextPairConfig.write("GIVE UP TURN")
 									switch (innerAlt.select()){
 										case NEXT:
-											nextButton.read()
+											//nextButton.read()
 											nextPairConfig.write(" ")
+											giveUpTurn.sleep(delay)
 											def p1 = chosenPairs[0]
 											def p2 = chosenPairs[1]
 											changePairs(p1[0], p1[1], Color.LIGHT_GRAY, -1)
@@ -241,68 +271,6 @@ class PlayerManager implements CSProcess {
 								break
 						}// end of outer switch
 					} // end of while getting two pairs
-				}
-				else {
-					toController.write(new GetGameDetails(id: myPlayerId))
-					gameDetails = (GameDetails)fromController.read()
-					
-					println(gameDetails.cardsSelected != null)
-					if (prevGameDetails != null) {
-						println(prevGameDetails != null)
-						println(prevGameDetails.cardsSelected != null)
-						println(gameDetails.cardsSelected == prevGameDetails.cardsSelected)
-					}
-					
-					if (gameDetails.cardsSelected != null &&
-						prevGameDetails != null &&
-						prevGameDetails.cardsSelected != null &&
-						gameDetails.cardsSelected == prevGameDetails.cardsSelected)
-					{
-						println("same")
-						continueBool = true
-					}
-					else
-						continueBool = false
-					
-					if (!continueBool) {
-						println("Got Game Details")
-						gameId = gameDetails.gameId
-						IPconfig.write("Playing Game Number - " + gameId)
-						playerMap = gameDetails.playerDetails
-						pairsMap = gameDetails.pairsSpecification
-						playerIds = playerMap.keySet()
-						playerIds.each { p ->
-							def pData = playerMap.get(p)
-							playerNames[p].write(pData[0])
-							pairsWon[p].write(" " + pData[1])
-						}
-						turn = gameDetails.playerTurn
-						// now use pairsMap to create the board
-						pairLocs = pairsMap.keySet()
-						pairLocs.each {loc ->
-							changePairs(loc[0], loc[1], Color.LIGHT_GRAY, -1)
-						}
-						def loc = gameDetails.cardsSelected
-						println(loc)
-						if (loc != null && loc != []) {
-							def pair1
-							def pair2
-							if (loc.size() < 3)
-								pair1 = [loc[0], loc[1]]
-							else {
-								pair1 = [loc[0], loc[1]]
-								pair2 = [loc[2], loc[3]]
-								def pairData2 = pairsMap.get(pair2)
-								changePairs(pair2[0], pair2[1], pairData2[1], pairData2[0])
-							}
-							def pairData1 = pairsMap.get(pair1)
-							changePairs(pair1[0], pair1[1], pairData1[1], pairData1[0])
-						}
-						println("cards selected each()")
-					}
-					prevGameDetails = gameDetails
-					println(prevGameDetails.cardsSelected)
-					println(gameDetails.cardsSelected)
 				}
 			} // end of while enrolled loop
 			IPlabel.write("Goodbye " + playerName + ", please close game window")
