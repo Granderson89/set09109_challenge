@@ -236,7 +236,8 @@ class ControllerManager implements CSProcess{
 						else {
 							//println "cannot claim pair: $p1, $p2"
 						}
-					}	
+					}
+					location = []	
 				} else if (o == 0) {
 					//println("maxPlayers: " + maxPlayers)
 					//println("availablePlayerIds: " + availablePlayerIds.size())
@@ -250,7 +251,10 @@ class ControllerManager implements CSProcess{
 					}
 					
 				} else if (o instanceof Collection ) {
-					location = o
+					if (location.size() >= 4)
+						location = o
+					else 
+						location += o
 				} else {
 					def withdraw = (WithdrawFromGame)o
 					def id = withdraw.id
