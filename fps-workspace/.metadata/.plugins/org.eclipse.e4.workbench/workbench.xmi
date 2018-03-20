@@ -204,7 +204,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_-HA2UCt9Eei2HNz64R4ZQQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ControllerManager.groovy" iconURI="platform:/plugin/org.codehaus.groovy.eclipse.ui/icons/groovy_file.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.codehaus.groovy.eclipse.editor.GroovyEditor&quot; name=&quot;ControllerManager.groovy&quot; partName=&quot;ControllerManager.groovy&quot; title=&quot;ControllerManager.groovy&quot; tooltip=&quot;ChapterExercises/src/challenge/ControllerManager.groovy&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ChapterExercises/src/challenge/ControllerManager.groovy&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;9000&quot; selectionTopPixel=&quot;8&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.codehaus.groovy.eclipse.editor.GroovyEditor&quot; name=&quot;ControllerManager.groovy&quot; partName=&quot;ControllerManager.groovy&quot; title=&quot;ControllerManager.groovy&quot; tooltip=&quot;ChapterExercises/src/challenge/ControllerManager.groovy&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ChapterExercises/src/challenge/ControllerManager.groovy&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1191&quot; selectionTopPixel=&quot;8&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.codehaus.groovy.eclipse.editor.GroovyEditor</tags>
           <tags>removeOnHide</tags>
@@ -412,7 +412,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_CQxSxCBoEeio--7rV2oYAg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_yCOBACt4Eei2HNz64R4ZQQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_CQyjACBoEeio--7rV2oYAg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_LYZAACwyEei5fuKnr-cLdQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_CQyjACBoEeio--7rV2oYAg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_CQxS0SBoEeio--7rV2oYAg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -436,7 +436,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_CQxTEiBoEeio--7rV2oYAg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_yCQdQCt4Eei2HNz64R4ZQQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_CQyirCBoEeio--7rV2oYAg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_LYZACiwyEei5fuKnr-cLdQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_CQyirCBoEeio--7rV2oYAg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_CQxTHSBoEeio--7rV2oYAg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

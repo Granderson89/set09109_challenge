@@ -1,0 +1,23 @@
+package challenge
+
+import java.io.Serializable;
+
+class GameDetails implements Serializable {
+	def gameId
+	def playerDetails = null
+	def pairsSpecification = null
+	def playerTurn
+	def cardsSelected
+	
+	def boolean same(GameDetails newDetails) {
+		if (gameId == newDetails.gameId &&
+			playerDetails == newDetails.playerDetails &&
+			pairsSpecification == newDetails.pairsSpecification &&
+			playerTurn == newDetails.playerTurn &&
+			cardsSelected == newDetails.cardsSelected) {
+			return true
+		}
+		else
+			return false
+	}
+}
